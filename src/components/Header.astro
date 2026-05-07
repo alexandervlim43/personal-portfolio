@@ -1,4 +1,4 @@
----
+﻿---
 const navItems = [
     {
         title: "Experiencia",
@@ -18,16 +18,16 @@ const navItems = [
     {
         title: "Contacto",
         label: "contact",
-        url: "mailto:martinez.delacruzjosejulian32@gmail.com",
+        url: "mailto:losmartinez12345@gmail.com",
     },
 ]
 ---
 
 <header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
-    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center">
+    <nav class="flex px-3 text-sm font-medium rounded-full text-slate-700 justify-center items-center">
         {
             navItems.map((link) => (
-            <a class="relative block px-2 py-2 transition hover:text-[#c441f6] dark:hover:text-[#c441f6]" aria-label={link.label} href={link.url}>
+            <a class="relative block px-2 py-2 transition hover:text-cyan-700" aria-label={link.label} href={link.url}>
                 {link.title}
             </a>
             ))
@@ -41,12 +41,12 @@ const navItems = [
             animation-timeline: scroll();
             animation-range: 0 100px;
         }
-    
+
         nav {
-            background-color: rgba(34, 43, 57, 0.5);
-            color: white;
+            background-color: rgba(255, 255, 255, 0.78);
+            color: #334155;
         }
-    
+
         @keyframes nav-shadown {
             0% {
                 background-color: rgba(34, 43, 57, 0);
@@ -56,7 +56,7 @@ const navItems = [
                             0 4px 6px -4px rgba(0, 0, 0, 0.1);
                 backdrop-filter: blur(8px);
                 -webkit-backdrop-filter: blur(8px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(14, 116, 144, 0.15);
             }
         }
 </style>

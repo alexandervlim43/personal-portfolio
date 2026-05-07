@@ -1,87 +1,159 @@
----
-import LaravelIcon  from "../components/icons/Laravel.astro";
+﻿---
 import AstroIcon from "../components/icons/AstroIcon.astro";
-import GitHub from "../components/icons/GitHub.astro";
+import ReactIcon from "../components/icons/React.astro";
 import LinkButton from "../components/LinkButton.astro";
 import Link from "../components/icons/Link.astro";
 
+type Tag = {
+    name: string;
+    class: string;
+    icon?: unknown;
+    image?: string;
+};
+
 const TAGS = {
-    LARAVEL : {
-        name: "Laravel",
-        class: "bg-white/5 text-white",
-        icon: LaravelIcon,
+    REACT: {
+        name: "React",
+        class: "bg-cyan-100 text-cyan-900 border border-cyan-300/70",
+        icon: ReactIcon,
     },
-    ASTRO : {
+    MOLECULER: {
+        name: "Moleculer",
+        class: "bg-emerald-100 text-emerald-900 border border-emerald-300/70",
+        image: "/tech/moleculer.png",
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        class: "bg-amber-100 text-amber-900 border border-amber-300/70",
+        image: "/tech/javascript.png",
+    },
+    PHP_SLIM: {
+        name: "PHP Slim",
+        class: "bg-indigo-100 text-indigo-900 border border-indigo-300/70",
+        image: "/tech/php.png",
+    },
+    ASTRO: {
         name: "Astro",
-        class: "bg-white/5 text-white",
+        class: "bg-slate-100 text-slate-900 border border-slate-300/70",
         icon: AstroIcon,
     },
-}
-
+} satisfies Record<string, Tag>;
 
 const PROJECTS = [
     {
-        title: "AquaControl",
-        description: "Creado con Laravel, AquaControl es un sistema integral para el monitoreo y control de los pagos y deudas de los derechohabientes del servicio de agua en diversas localidades del Estado de México.",
-        link: "https://aquacontrol.rootheim.com/",
-        github: "https://github.com/temolzin/AquaGeneric",
-        image: "/projects/aquaControl.webp",
-        tags: [TAGS.LARAVEL],
+        title: "LandySystem",
+        description:
+            "Sistema web administrativo integral para centralizar la operación interna, con módulos de compras, producción, activos fijos, proveedores, empleados y catálogos fiscales (SAT). Incluye captura, validación, seguimiento y consulta de información clave para mejorar el control operativo y la trazabilidad de procesos.",
+        link: "https://dev.landysystem.com.mx/",
+        github: null,
+        image: "/projects/396shots_so_LANDY.png",
+        tags: [TAGS.REACT, TAGS.MOLECULER],
     },
     {
-        title: "Flowers",
-        description: "Creado con Astro, Flowers es el diseño de descripción de un producto ficticio, una floristería que ofrece una amplia variedad de flores y arreglos florales. Fue parte de un proyecto escolar.",
-        link: "https://flower-shop-kappa-blush.vercel.app/",
-        github: "https://github.com/josejulianmtnez/flower-shop",
-        image: "/projects/flowers.webp",
-        tags: [TAGS.ASTRO],
+        title: "SAPO (Sistema de Asistencia del Personal Operativo)",
+        description:
+            "Plataforma web administrativa para control de asistencia y gestión de personal, con registro de checadas (incluyendo validación facial), administración de colaboradores y catálogos (áreas, puestos y horarios), flujo de solicitudes internas (permisos, incidencias y vacaciones), manejo documental de RH y reportes operativos para seguimiento y toma de decisiones.",
+        link: "https://sapo.vlim.mx/",
+        github: null,
+        image: "/projects/560shots_so_SAPO.png",
+        tags: [TAGS.MOLECULER, TAGS.JAVASCRIPT],
     },
-]
+    {
+        title: "Ciudadano 360",
+        description:
+            "Plataforma web y backend de atención ciudadana para municipios, enfocada en el registro y seguimiento de reportes, incidencias y trámites. Integra alta de ciudadanos, carga de evidencias y documentos, asignación de cuadrillas o usuarios, consulta de avances, catálogos operativos y bitácora de acciones para fortalecer el control y la trazabilidad de la gestión pública.",
+        link: "https://www.municipio-360.com/",
+        github: null,
+        image: "/projects/397shots_so_Municipio.png",
+        tags: [TAGS.MOLECULER, TAGS.JAVASCRIPT],
+    },
+
+    {
+        title: "Findes 25",
+        description:
+            "Plataforma web de capacitación profesional con panel administrativo, enfocada en la gestión de cursos, conferencias y webinarios. Integra módulos de inscripción, contacto, boletín y encuestas, además de herramientas internas para publicar contenido, actualizar fechas y costos, y dar seguimiento a registros y correos de usuarios.",
+        link: "https://www.findes.org/",
+        github: null,
+        image: "/projects/849shots_so_FINDES.png",
+        tags: [TAGS.PHP_SLIM, TAGS.JAVASCRIPT],
+    },
+    {
+        title: "Agenda Kanai 24",
+        description:
+            "Sistema web administrativo de control de accesos y agenda multi-sede, enfocado en registrar, validar y dar seguimiento a visitantes, colaboradores y proveedores. Incluye autenticación por perfil, gestión de listas negras, escaneo y generación de QR, carga masiva de registros y reportes operativos para mejorar la trazabilidad y el control diario en hoteles.",
+        link: "https://www.agendakanai.com/",
+        github: null,
+        image: "/projects/849shots_so_KANAI.png",
+        tags: [TAGS.PHP_SLIM, TAGS.JAVASCRIPT],
+    },
+    {
+        title: "Inglés Ya",
+        description:
+            "Plataforma web para academia de inglés con sitio público y panel administrativo para gestionar cursos, certificaciones, sucursales, promociones y clases muestra. Incluye registro de usuarios, reservas, pagos en línea con Openpay, emisión de comprobantes y notificaciones por correo para automatizar la operación comercial y académica.",
+        link: "https://www.ingles-ya.mx/",
+        github: null,
+        image: "/projects/406shots_so_INGLES.png",
+        tags: [TAGS.MOLECULER, TAGS.JAVASCRIPT],
+    },
+];
 ---
 
 <div class="flex flex-col gap-y-16">
     {
-        PROJECTS.map(({ image, title, description, tags, link, github }) => (
+        PROJECTS.map(({ image, title, description, tags, link }) => (
             <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                 <div class="w-full md:w-1/2">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                        <img alt="Imágen" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 overflow-clip rounded-xl sm:rounded-xl border border-slate-300/70 bg-white/40 shadow-lg transition-all duration-500 ease-out md:group-hover:-translate-y-1 md:group-hover:shadow-2xl md:group-hover:border-cyan-400/70">
+                        <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-cyan-500/0 via-cyan-400/0 to-sky-300/0 transition-all duration-500 md:group-hover:from-cyan-500/10 md:group-hover:via-cyan-400/10 md:group-hover:to-sky-300/20" />
+                        <img
+                            alt="Imagen"
+                            class="object-cover object-top w-full h-56 transition duration-700 ease-out sm:h-64 md:h-full md:scale-105 md:group-hover:scale-110 md:group-hover:brightness-105"
+                            loading="lazy"
+                            src={image}
+                        />
                     </div>
                 </div>
 
                 <div class="w-full md:w-1/2 md:max-w-lg">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-800 text-slate-900">
                         {title}
                     </h3>
                     <div class="flex flex-wrap mt-2">
                         <ul class="flex flex-row mb-2 gap-x-2">
                             {tags.map((tag) => (
-                            <li>
-                                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}>
-                                    <tag.icon class="size-4" />
-                                    {tag.name}
-                                </span>
-                            </li>
-                        ))}
+                                <li>
+                                    <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}
+                                    >
+                                        {"image" in tag ? (
+                                            <img
+                                                src={tag.image}
+                                                alt={tag.name}
+                                                class="size-4 object-contain"
+                                                loading="lazy"
+                                            />
+                                        ) : "icon" in tag && tag.icon ? (
+                                            <tag.icon class="size-4" />
+                                        ) : null}
+                                        {tag.name}
+                                    </span>
+                                </li>
+                            ))}
                         </ul>
 
-                        <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-                            <footer class="flex items-end justify-start mt-4 gap-x-4">
-                                {github && (
-                                    <LinkButton href={github}>
-                                        <GitHub class="size-6" />
-                                            Code
-                                    </LinkButton>
-                                )}
-                                {link && (
-                                    <LinkButton href={link}>
-                                        <Link class="size-4" />
-                                            Preview
-                                    </LinkButton>
-                                )}
-                            </footer>
+                        <div class="mt-2 text-gray-700 text-slate-700">
+                            {description}
                         </div>
+                        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                            {link && (
+                                <LinkButton href={link}>
+                                    <Link class="size-4" />
+                                    Preview
+                                </LinkButton>
+                            )}
+                        </footer>
                     </div>
+                </div>
             </article>
         ))
     }

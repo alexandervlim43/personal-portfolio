@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import Projects from '../components/Projects.astro';
@@ -11,36 +11,36 @@ import Hero from '../components/Hero.astro';
 import TitleSection from '../components/TitleSection.astro';
 ---
 
-<Layout title="Portfolio de Jose Julian Martinez de la Cruz - Desarrollador y Programador Web" description="Contrata a Julian, un desarrollador web apasionado por la tecnología y la programación. Con experiencia en HTML, CSS, JavaScript y frameworks modernos, estoy listo para llevar tus proyectos al siguiente nivel. ¡Hablemos!">
-	<main class="px-4">
-		<SectionContainer class="py-16 md:py-36">
-			<Hero />
-			<slot />
-		</SectionContainer>
-		<SectionContainer id="experience">
-			<TitleSection>
-				<BriefCase class="size-8" />
-				Experiencia laboral
-			</TitleSection>
-			<Experience />
-		</SectionContainer>
+<Layout title="Portfolio de Alexander Martínez Zuñiga - Desarrollador Web Junior" description="Portfolio profesional de Alexander Martínez Zuñiga, desarrollador web junior enfocado en construir sistemas web funcionales, mantenibles y orientados a resolver problemas reales.">
+    <main class="px-4">
+        <SectionContainer class="py-16 md:py-36">
+            <Hero />
+            <slot />
+        </SectionContainer>
+        <SectionContainer id="experience">
+            <TitleSection>
+                <BriefCase class="size-8" />
+                Experiencia laboral
+            </TitleSection>
+            <Experience />
+        </SectionContainer>
 
-		<div class="space-y-24">
-			<SectionContainer id="projects">
-				<TitleSection>
-					<CodeIcon class="size-8" />
-					Proyectos
-				</TitleSection>
-				<Projects />
-			</SectionContainer>
-			
-			<SectionContainer id="about-me">
-				<TitleSection>
-					<ProfileCheck class="size-8" />
-					Sobre mí
-				</TitleSection>
-				<About />
-			</SectionContainer>
-		</div>
-	</main>
+        <div class="space-y-24">
+            <SectionContainer id="projects">
+                <TitleSection>
+                    <CodeIcon class="size-8" />
+                    Proyectos
+                </TitleSection>
+                <Projects />
+            </SectionContainer>
+
+            <SectionContainer id="about-me">
+                <TitleSection>
+                    <ProfileCheck class="size-8" />
+                    Sobre mí
+                </TitleSection>
+                <About />
+            </SectionContainer>
+        </div>
+    </main>
 </Layout>

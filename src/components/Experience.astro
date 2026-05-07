@@ -1,24 +1,24 @@
----
-import ExperienceItem from "./ExperienceItem.astro"
+﻿---
+import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
     {
-        date: 'Septiembre 2024',
-        title: 'Desarrollador Full Stack',
-        company: 'RootHeim Company',
-        description: 'Colaboré durante 4 meses en el desarrollo de AquaControl, una solución integral para el monitoreo y control de los pagos y deudas de los derecho-habientes del servicio de agua potable en diversas localidades del Estado de México. Originalmente fue concebida para una sola localidad, pero me encargué de rediseñar y adaptar todo el sistema para que pudiera operar de forma genérica en múltiples localidades.',
-        link: 'https://rootheim.com/',
+        date: "2025 - Actualidad",
+        title: "Desarrollador Full Stack",
+        company: "VLIM",
+        description:
+            "Participo en el desarrollo y mantenimiento de sistemas web administrativos orientados a optimizar procesos operativos. He implementado interfaces en React para frontend, servicios backend con Moleculer y consumo/diseño de API REST para la integración entre módulos. También trabajo con modelado y consultas en bases de datos MySQL y PostgreSQL, aplicando validaciones, lógica de negocio y mejoras de usabilidad para entregar soluciones estables, escalables y enfocadas en resultados.",
+        link: "#",
     },
-]
+];
 ---
 
 <ol class="relative mt-16">
     {
-        EXPERIENCE.map(experience => (
+        EXPERIENCE.map((experience) => (
             <li class="mb-10 ms-4">
-                <ExperienceItem {...experience } />
+                <ExperienceItem {...experience} />
             </li>
         ))
-    }               
+    }
 </ol>
-
